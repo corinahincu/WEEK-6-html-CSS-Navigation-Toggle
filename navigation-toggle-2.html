@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Navigation Toggle Example</title>
+  <style>
+    body {
+      background-color: #456;
+      /*NEW*/
+      font-family: Helvetica;
+      margin: 0;
+      width: 170px;
+      transform: translateX(200px);
+    }
+    .menu-nav {
+      background-color: #345;
+      margin-top: -228px;
+      margin-left: -200px;
+      transition: 0.5s;
+      position: absolute;
+    }
+    .menu-nav:target {
+      margin-left: 0;
+      margin-top: 0;
+    }
+    .menu-title {
+      margin: 0;
+      color: white;
+      padding: 20px 10px;
+    }
+    .menu-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    a {
+      text-decoration: none;
+      color: #ddd;
+      border-bottom: 1px solid #567;
+
+      padding: 5px 10px;
+      display: block;
+    }
+
+    li:first-child {
+      border-top: 1px solid #567;
+    }
+    /*BEGGINER'S FAULT*/
+    /*a:first-child {
+      border-top: 1px solid red;
+    } -> primul si ultimul copil al elementului li, din acest motiv e gresit
+    */ 
+
+    a:hover {
+      color: white;
+      background-color: #234;
+    }
+
+    /*PSEUDO ELEMENTS*/
+    /* COLOR SIGNALS */
+    a::before {
+      content: "✓";
+      padding-right: 10px;
+      color: green;
+    }
+    .unavailable::before {
+      content: "✗";
+      color: rgb(194, 5, 5);
+    }
+    /*a::after {
+      content: "-";
+    }
+    */
+    .toggler::before {
+      display: none;
+    }
+    .toggler {
+      width: 50px;
+      height: 50px;
+      padding: 5px;
+      background-color: brown;
+      border-radius: 30px;
+      text-align: center;
+      line-height: 50px;
+      margin-left: 25px;
+
+    }
+
+  </style>
+</head>
+<body>
+  
+  <nav class="menu-nav" id="menu">
+    <h2 class="menu-title">Our Cuisine</h2>
+    <ul class="menu-list">
+      <li><a href="#">Salad</a></li>
+      <li><a href="#">Soup</a></li>
+      <li><a href="#">Pizza</a></li>
+      <li><a class="unavailable" href="#">Kebab</a></li>
+      <li><a href="#">Burger</a></li>
+    </ul>
+    <a href="#menu" class="toggler">MENU</a>
+  </nav>
+
+</body>
+</html>
